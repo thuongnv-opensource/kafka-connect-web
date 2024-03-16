@@ -1,13 +1,10 @@
-FROM node:lts-alpine as build
+FROM node:18-alpine as build
 
-RUN npm install -g http-server
+RUN yarn
 
 WORKDIR /app
 
 COPY package*.json ./
-
-RUN npm install --production
-RUN npm i -S @vue/cli-service
 
 COPY . .
 
