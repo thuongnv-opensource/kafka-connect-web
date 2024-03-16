@@ -11,7 +11,7 @@ import ConnectWebHome from './components/ConnectWebHome.vue';
 Vue.use(VueRouter);
 
 const connectCluster = process.env.VUE_APP_CONNECT_SERVERS != null ?
-    process.env.VUE_APP_CONNECT_SERVERS : "VUE_APP_CONNECT_SERVERS_DOCKER_ENV";
+    process.env.VUE_APP_CONNECT_SERVERS : "http://localhost:8083";
 Vue.prototype.$connectServerList = connectCluster.indexOf(',') > -1 ?
     connectCluster.split(',') : [connectCluster]
 

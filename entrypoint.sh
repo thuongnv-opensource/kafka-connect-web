@@ -2,9 +2,6 @@
 
 ROOT_DIR=/app/dist
 
-for file in $ROOT_DIR/js/app.*.js* ;
-do
-  sed -i 's|VUE_APP_CONNECT_SERVERS_DOCKER_ENV|'${VUE_APP_CONNECT_SERVERS}'|g' $file
-done
+sed -i 's|CONNECT_SERVER_DOCKER_ENV|'${CONNECT_SERVER_DOCKER_ENV}'|g' /etc/nginx/conf.d/default.conf
 
-http-server dist
+nginx -g "daemon off;"
